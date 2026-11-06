@@ -1,53 +1,53 @@
-# 小黑盒站内搜索 Skill
+# 小黑盒搜索 Skill
 
-用**你已登录小黑盒的 Chrome**，查游戏档案、评分和站内讨论。适合找攻略、跟进补丁反馈、比较玩家口碑。需要看讨论时，给出原帖链接、代表性回复和争议点，便于自己追看。
+**让你的 Agent 用你已登录的小黑盒 Chrome，查游戏评分、搜站内帖子、读玩家回复。**
 
-| 能查什么 | 示例输出 |
+适合找攻略、跟进补丁反馈，也适合在买游戏前看看玩家怎么评价。想了解一场讨论时，Agent 会给出原帖和代表性回复，再概括共识、分歧和玩家提出的解决办法。
+
+## 快速上手
+
+把下面这句话发给 **Codex、WorkBuddy 或 Hermes Agent**：
+
+```text
+帮我安装或更新小黑盒搜索技能，并做一次只读验收：https://raw.githubusercontent.com/xleft/xiaoheihe-search/main/docs/install.md
+```
+
+Agent 会按[安装说明](docs/install.md)选择适合当前环境的方式，并分别检查技能是否加载、浏览器是否连通、能否查到游戏信息。首次连接 Chrome、登录小黑盒或上传技能包时，可能需要你在界面上操作。
+
+技能需要 Agent 能操作你授权的、已登录小黑盒的 Chrome。不需要另装 Agent Reach、OpenCLI、heybox-cli，也不需要 API 密钥。
+
+## 能查什么
+
+| 你想看 | 能拿到什么 |
 | --- | --- |
-| 站内搜帖与读帖 | 标题、原帖链接、摘要、正文和已加载回复 |
-| 游戏档案与评价 | 小黑盒评分、评价人数、全语言好评率、简介、页面价格、在线数据、短评样本 |
-| 游戏专属社区 | 通过游戏详情页「社区」进入，按需读原帖和回复 |
+| 站内帖子与讨论 | 原帖标题和链接、正文重点、已加载的评论与楼中楼样本 |
+| 游戏信息与评分 | 简介、小黑盒评分和评价人数、平台好评率、玩家短评，以及页面可见的价格和在线数据 |
+| 某款游戏的专属社区 | 从游戏详情页进入该游戏的「社区」，列出相关帖子和代表性回复 |
 
-数据以网页实际展示为准。完整玩家统计等需要打开 App 的字段，以及未加载或折叠的评论，不保证取到。不会导入 Cookie、调用未公开接口或替你登录。技能本身不需要 Agent Reach、OpenCLI、heybox-cli 或 API 密钥；需要宿主可操作你授权的 Chrome。
-
-## 安装
-
-| 环境 | 安装与浏览器 | 验证状态 |
-| --- | --- | --- |
-| **Codex 桌面版** | 将本仓库放到用户技能目录 `~/.agents/skills/xiaoheihe-search`。在 Codex 中连接已登录小黑盒的 Chrome。 | Windows 上已实测搜帖、读帖、评论采样、游戏档案与专属社区 |
-| **WorkBuddy 桌面版** | [下载技能 ZIP](https://github.com/xleft/xiaoheihe-search/releases/latest/download/xiaoheihe-search.zip)，从「专家·技能·连接器 → 技能 → 添加技能 → 上传技能」导入。用 WorkBuddy 的 Chrome 扩展连接已登录的浏览器。 | 提供原生浏览器操作路线，尚未端到端实测 |
-| **Hermes Agent（可使用 DeepSeek 模型）** | 将本仓库放到 `~/.hermes/skills/xiaoheihe-search`，或放到当前 Hermes 配置的技能目录。在已授权的 Chrome 中登录小黑盒，并按官方说明连接 Hermes 浏览器工具。 | 提供原生浏览器操作路线，尚未端到端实测 |
-
-例如，在 Windows PowerShell 安装到 Codex：
-
-```powershell
-git clone https://github.com/xleft/xiaoheihe-search.git "$env:USERPROFILE/.agents/skills/xiaoheihe-search"
-```
-
-macOS/Linux 的 Codex 和 Hermes Agent 可分别克隆到：
-
-```sh
-git clone https://github.com/xleft/xiaoheihe-search.git ~/.agents/skills/xiaoheihe-search
-# 或者，安装到 Hermes Agent：
-git clone https://github.com/xleft/xiaoheihe-search.git ~/.hermes/skills/xiaoheihe-search
-```
-
-已有同名技能时请更新原目录，避免装出两个同名副本。没有显示时新开会话；Codex 仍未识别时可重启。Hermes 只换成 DeepSeek 模型不会自动接通浏览器，仍需正确配置并授权 Chrome。三个宿主的执行区别见[浏览器操作指引](references/browser-workflow.md)。
+以浏览器实际显示为准。需要扫码打开 App 的完整玩家统计、移动端专属券价等，网页读不到时会标明。评论是已读样本，不能代表整个评论区。
 
 ## 怎么用
 
-安装后，可以直接说：
+装好后直接说你想查什么，例如：
 
-- 「用小黑盒搜索技能查《尼尔：机械纪元》的评分和玩家短评，说明两种评分口径。」
-- 「去小黑盒搜《影之刃零》瞬身误触，列 5 篇相关帖和代表性回复，标出争议。」
-- 「打开这条小黑盒帖子，整理楼主观点和评论区给出的解决办法。」
+- 「去小黑盒搜《影之刃零》瞬身误触，列 5 篇相关帖子和代表性回复，总结大家争论什么、有哪些解决办法。」
+- 「查《尼尔：机械纪元》的小黑盒评分和玩家短评，把小黑盒评分与 Steam 好评率分开列。」
+- 「打开这条小黑盒帖子，列出楼主的核心观点和评论区的不同意见。」说完附上帖子链接即可。
 
-也可以在 Codex 中用 `$xiaoheihe-search`，在 Hermes 中用 `/xiaoheihe-search`。
+也可以在 Codex 中用 `$xiaoheihe-search`，或在 Hermes Agent 中用 `/xiaoheihe-search`。
+
+## 支持的环境
+
+| 环境 | 手动安装入口 | 验证状态 |
+| --- | --- | --- |
+| **Codex 桌面版** | 将仓库放到 `~/.agents/skills/xiaoheihe-search`，连接已登录小黑盒的 Chrome | Windows 上已实测搜帖、读帖、评论采样、游戏档案与专属社区 |
+| **WorkBuddy 桌面版** | [下载技能 ZIP](https://github.com/xleft/xiaoheihe-search/releases/latest/download/xiaoheihe-search.zip)，从「专家·技能·连接器 → 技能 → 添加技能 → 上传技能」导入；通过 Chrome 扩展连接浏览器 | 已提供安装包和操作指引，尚未端到端实测 |
+| **Hermes Agent（可搭配 DeepSeek）** | 将仓库放到 `~/.hermes/skills/xiaoheihe-search` 或当前配置的技能目录，再连接授权的 Chrome | 已提供操作指引，尚未端到端实测 |
+
+手动安装命令和检查步骤见[安装与更新](docs/install.md)。WorkBuddy 和 Hermes 使用各自的浏览器工具，详见[浏览器操作指引](references/browser-workflow.md)。在 Hermes 中选择 DeepSeek 模型后，仍需配置浏览器工具。
 
 ## 参考
 
-[Codex 技能文档](https://developers.openai.com/codex/skills) · [WorkBuddy 上传技能](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market) · [Hermes 技能文档](https://hermes-agent.nousresearch.com/docs/guides/work-with-skills)
-
-输出范围标记参考了 [heybox-cli](https://github.com/shadowfish07/heybox-cli) 的只读工具设计；本项目通过浏览器读取页面，不运行该 CLI。
+快速上手的呈现方式参考 [Agent Reach](https://github.com/Panniantong/agent-reach#快速上手)，输出范围的标记参考 [heybox-cli](https://github.com/shadowfish07/heybox-cli) 的只读工具设计。
 
 本项目是独立技能，与小黑盒、OpenAI、腾讯及 Nous Research 无官方隶属关系。
