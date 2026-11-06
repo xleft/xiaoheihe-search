@@ -41,11 +41,11 @@ Agent 会按[安装说明](docs/install.md)选择当前环境的安装方式，�
 | 环境 | 手动安装入口 | 验证状态 |
 | --- | --- | --- |
 | **Codex 桌面版** | 将仓库放到 `~/.agents/skills/xiaoheihe-search`，连接已登录小黑盒的 Chrome | Windows 上已实测搜帖、读帖、评论采样、游戏档案与专属社区 |
-| **WorkBuddy 桌面版** | 将[仓库最新版](https://github.com/xleft/xiaoheihe-search/archive/refs/heads/main.zip)解压到已识别的本地技能目录；用客户端运行时和 Chrome 扩展连接浏览器 | Windows 上已实测技能加载、Chrome 连接和游戏评分查询 |
+| **WorkBuddy 桌面版** | 下载[主分支源码 ZIP](https://github.com/xleft/xiaoheihe-search/archive/refs/heads/main.zip)，按安装说明放入本地技能目录或打包上传；用客户端运行时和 Chrome 扩展连接浏览器 | Windows 上已实测技能加载、Chrome 连接和游戏评分查询 |
 | **豆包办公** | 按当前环境确认本地技能目录或技能上传入口，使用获授权的宿主浏览器 | 已有独立浏览器扫码登录及游戏评分查询记录；安装方式需按环境确认 |
 | **Hermes Agent（可搭配 DeepSeek）** | 将仓库放到 `~/.hermes/skills/xiaoheihe-search` 或当前配置的技能目录，再连接授权的 Chrome | 已提供操作指引，尚未端到端实测 |
 
-手动安装命令和检查步骤见[安装与更新](docs/install.md)。如果使用 WorkBuddy 的上传入口，可下载[已发布的 v0.1.0 导入包](https://github.com/xleft/xiaoheihe-search/releases/download/v0.1.0/xiaoheihe-search.zip)。新版排障和验收指引在仓库主分支。
+手动安装命令和检查步骤见[安装与更新](docs/install.md)。WorkBuddy 本地安装和界面上传均从主分支源码获取技能。上传前按说明打包 `SKILL.md` 和 `references/`。
 
 上表记录已有实测，《影之刃零》新版验收流程需各宿主分别复跑。WorkBuddy 扩展显示未连接时，先检查客户端的「浏览器操控」运行时。豆包若打开独立浏览器，先确认授权和登录状态。详见[浏览器操作指引](references/browser-workflow.md)。
 

@@ -29,7 +29,10 @@ git clone https://github.com/xleft/xiaoheihe-search.git "$HOME/.agents/skills/xi
 
 ### WorkBuddy 桌面版
 
-Windows 上已验证从 `~/.workbuddy/skills/xiaoheihe-search` 加载。确认当前客户端使用该目录且可写时，从[仓库最新版](https://github.com/xleft/xiaoheihe-search/archive/refs/heads/main.zip)解压，将包含 `SKILL.md` 和 `references/` 的文件夹命名为 `xiaoheihe-search` 并放入技能目录。使用上传入口时，可下载[已发布的 v0.1.0 导入包](https://github.com/xleft/xiaoheihe-search/releases/download/v0.1.0/xiaoheihe-search.zip)，在「专家·技能·连接器 → 技能 → 添加技能 → 上传技能」导入。新版指引在仓库主分支。
+两种安装方式都从[主分支源码 ZIP](https://github.com/xleft/xiaoheihe-search/archive/refs/heads/main.zip)获取。解压后，从 `xiaoheihe-search-main/` 取出 `SKILL.md` 和 `references/`，放在同一个名为 `xiaoheihe-search` 的文件夹内。
+
+- **本地安装**。Windows 上已验证从 `~/.workbuddy/skills/xiaoheihe-search` 加载。确认当前客户端使用该目录且可写时，将准备好的文件夹放入 `~/.workbuddy/skills/`。
+- **界面上传**。把准备好的 `xiaoheihe-search` 文件夹压成 ZIP，保留这一层目录，使包内路径为 `xiaoheihe-search/SKILL.md` 和 `xiaoheihe-search/references/browser-workflow.md`。在「专家·技能·连接器 → 技能 → 添加技能 → 上传技能」选择这个 ZIP。
 
 在「设置 → 智能体 → 浏览器操控」分别确认客户端运行时和 Chrome 扩展。需要安装或授权时请用户在对应界面确认。[WorkBuddy 技能文档](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)
 
