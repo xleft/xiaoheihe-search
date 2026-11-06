@@ -1,20 +1,20 @@
 # 小黑盒搜索 Skill
 
-**让你的 Agent 用你已登录的小黑盒 Chrome，查游戏评分、搜站内帖子、读玩家回复。**
+**让你的 Agent 用你授权、已登录小黑盒的浏览器，查游戏评分、搜站内帖子、读玩家回复。**
 
 适合找攻略、跟进补丁反馈，也适合在买游戏前看看玩家怎么评价。想了解一场讨论时，Agent 会给出原帖和代表性回复，再概括共识、分歧和玩家提出的解决办法。
 
 ## 快速上手
 
-把下面这句话发给 **Codex、WorkBuddy 或 Hermes Agent**：
+把下面这句话发给 **Codex、WorkBuddy、豆包办公或 Hermes Agent**：
 
 ```text
 帮我安装或更新小黑盒搜索技能，并做一次只读验收：https://raw.githubusercontent.com/xleft/xiaoheihe-search/main/docs/install.md
 ```
 
-Agent 会按[安装说明](docs/install.md)选择适合当前环境的方式，并分别检查技能是否加载、浏览器是否连通、能否查到游戏信息。首次连接 Chrome、登录小黑盒或上传技能包时，可能需要你在界面上操作。
+Agent 会按[安装说明](docs/install.md)选择当前环境的安装方式，并用「《影之刃零》在小黑盒上有哪些热门讨论？」验收技能加载、浏览器连接和实际查询。首次连接浏览器、登录小黑盒或上传技能包时，可能需要你在界面上操作。
 
-技能需要 Agent 能操作你授权的、已登录小黑盒的 Chrome。不需要另装 Agent Reach、OpenCLI、heybox-cli，也不需要 API 密钥。
+技能使用宿主提供的浏览器工具和你自己的小黑盒登录态，无需 API 密钥或发布者提供的服务。登录由你本人完成，技能只读取网页可见内容。
 
 ## 能查什么
 
@@ -30,7 +30,7 @@ Agent 会按[安装说明](docs/install.md)选择适合当前环境的方式，�
 
 装好后直接说你想查什么，例如：
 
-- 「去小黑盒搜《影之刃零》瞬身误触，列 5 篇相关帖子和代表性回复，总结大家争论什么、有哪些解决办法。」
+- 「《影之刃零》在小黑盒上有哪些热门讨论？先给我原帖和代表性回复，再总结大家在讨论什么，说明热门的依据和取样范围。」
 - 「查《尼尔：机械纪元》的小黑盒评分和玩家短评，把小黑盒评分与 Steam 好评率分开列。」
 - 「打开这条小黑盒帖子，列出楼主的核心观点和评论区的不同意见。」说完附上帖子链接即可。
 
@@ -41,10 +41,13 @@ Agent 会按[安装说明](docs/install.md)选择适合当前环境的方式，�
 | 环境 | 手动安装入口 | 验证状态 |
 | --- | --- | --- |
 | **Codex 桌面版** | 将仓库放到 `~/.agents/skills/xiaoheihe-search`，连接已登录小黑盒的 Chrome | Windows 上已实测搜帖、读帖、评论采样、游戏档案与专属社区 |
-| **WorkBuddy 桌面版** | [下载技能 ZIP](https://github.com/xleft/xiaoheihe-search/releases/latest/download/xiaoheihe-search.zip)，从「专家·技能·连接器 → 技能 → 添加技能 → 上传技能」导入；通过 Chrome 扩展连接浏览器 | 已提供安装包和操作指引，尚未端到端实测 |
+| **WorkBuddy 桌面版** | 将[仓库最新版](https://github.com/xleft/xiaoheihe-search/archive/refs/heads/main.zip)解压到已识别的本地技能目录；用客户端运行时和 Chrome 扩展连接浏览器 | Windows 上已实测技能加载、Chrome 连接和游戏评分查询 |
+| **豆包办公** | 按当前环境确认本地技能目录或技能上传入口，使用获授权的宿主浏览器 | 已有独立浏览器扫码登录及游戏评分查询记录；安装方式需按环境确认 |
 | **Hermes Agent（可搭配 DeepSeek）** | 将仓库放到 `~/.hermes/skills/xiaoheihe-search` 或当前配置的技能目录，再连接授权的 Chrome | 已提供操作指引，尚未端到端实测 |
 
-手动安装命令和检查步骤见[安装与更新](docs/install.md)。WorkBuddy 和 Hermes 使用各自的浏览器工具，详见[浏览器操作指引](references/browser-workflow.md)。在 Hermes 中选择 DeepSeek 模型后，仍需配置浏览器工具。
+手动安装命令和检查步骤见[安装与更新](docs/install.md)。如果使用 WorkBuddy 的上传入口，可下载[已发布的 v0.1.0 导入包](https://github.com/xleft/xiaoheihe-search/releases/download/v0.1.0/xiaoheihe-search.zip)。新版排障和验收指引在仓库主分支。
+
+上表记录已有实测，《影之刃零》新版验收流程需各宿主分别复跑。WorkBuddy 扩展显示未连接时，先检查客户端的「浏览器操控」运行时。豆包若打开独立浏览器，先确认授权和登录状态。详见[浏览器操作指引](references/browser-workflow.md)。
 
 ## 参考
 
